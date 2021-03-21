@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import useStore from "../../store/todo-store";
 
 import TextField from "@material-ui/core/TextField";
+import Box from "@material-ui/core/Box";
 
 import Grid from "@material-ui/core/Grid";
 
 const ToDoForm = (props) => {
-
   const [title, setTitle] = useState("");
   const addTodo = useStore((state) => state.addTodo);
 
@@ -20,13 +20,22 @@ const ToDoForm = (props) => {
     }
   };
   return (
-    <Grid style={{marginTop: '2%'}} container direction="row" justify="center" alignItems="center">
-      <TextField style={{width: '50%'}}
-        label="Enter to do title and press tab..."
-        value={title}
-        onChange={changeHandler}
-        onBlur={onBlurHandler}
-      />
+    <Grid
+      style={{ marginTop: "2%" }}
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+    >
+      <Box width={350}>
+        <TextField
+          label="Enter to do title and press tab..."
+          value={title}
+          onChange={changeHandler}
+          onBlur={onBlurHandler}
+          fullWidth
+        />
+      </Box>
     </Grid>
   );
 };
